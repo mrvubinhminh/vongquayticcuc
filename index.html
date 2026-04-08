@@ -16,6 +16,9 @@
     <!-- Thư viện Pháo hoa vật lý siêu thực -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+    <!-- Thư viện chụp màn hình xuất ảnh html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <!-- Cài đặt MathJax cho Công thức Toán -->
     <script>
       window.MathJax = {
@@ -102,20 +105,22 @@
         // ==========================================
         // BỘ ICONS
         // ==========================================
-        const IconSettings = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>;
+        const IconSettings = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>;
         const IconPlay = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>;
-        const IconGift = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>;
-        const IconSkull = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/></svg>;
+        const IconGift = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>;
+        const IconSkull = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/></svg>;
         const IconRefresh = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>;
         const IconAperture = () => <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>;
         const IconX = () => <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>;
         const IconLightbulb = () => <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>;
-        
         const IconFolder = ({ isOpen }) => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={isOpen ? "#fbbf24" : "none"} stroke={isOpen ? "#fbbf24" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>;
         const IconFile = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>;
         const IconTrash = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400 hover:text-red-300"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>;
         const IconSave = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>;
         const IconPlus = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>;
+        const IconList = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>;
+        const IconDownload = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>;
+        const IconHelp = () => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>;
 
         // ==========================================
         // CẤU HÌNH DỮ LIỆU & TIỆN ÍCH
@@ -196,7 +201,7 @@
           { id: 'p3', text: "Tự chuẩn bị câu hỏi cho bạn", icon: "🤔", color: "from-purple-500 to-purple-700", weight: 10 },
           { id: 'p4', text: "Trình bày lại kiến thức", icon: "🗣️", color: "from-green-500 to-green-700", weight: 10 },
           { id: 'p5', text: "Vẽ sơ đồ tư duy bài học", icon: "🗺️", color: "from-orange-500 to-orange-700", weight: 10 },
-          { id: 'p6', text: "1 DẤU X (Phạt Nặng)", icon: "❌", color: "from-red-600 to-red-800", weight: 90 }, // Tổng các phần khác là 90, dấu X là 90 => Tỉ lệ 50%
+          { id: 'p6', text: "1 DẤU X (Phạt Nặng)", icon: "❌", color: "from-red-600 to-red-800", weight: 90 }, 
           { id: 'p7', text: "Tìm ví dụ thực tế liên quan", icon: "🌍", color: "from-teal-500 to-teal-700", weight: 10 },
           { id: 'p8', text: "Quay video giải lại bài", icon: "📹", color: "from-pink-500 to-pink-700", weight: 10 },
           { id: 'p9', text: "Làm phiếu học tập bổ sung", icon: "📝", color: "from-yellow-500 to-yellow-700", weight: 10 },
@@ -211,7 +216,7 @@
                 random -= (Number(item.weight) || 1);
                 if (random <= 0) return item;
             }
-            return items[items.length - 1]; // Fallback
+            return items[items.length - 1]; 
         };
 
         const MOTIVATIONAL_QUOTES = [
@@ -334,12 +339,13 @@
             penalties: DEFAULT_PENALTIES
           });
           
-          // State cho Modal Cài Đặt
+          // State Modal
           const [showSettings, setShowSettings] = useState(false);
-          const [settingsTab, setSettingsTab] = useState('general'); // general | rewards | penalties
+          const [settingsTab, setSettingsTab] = useState('general');
           const [localSettings, setLocalSettings] = useState(settings);
+          const [showHelp, setShowHelp] = useState(false); // State Hướng dẫn
           
-          // State cho Thư viện Bài học
+          // State Thư viện
           const [savedSheets, setSavedSheets] = useState(() => {
             const saved = localStorage.getItem('vtl_saved_sheets');
             return saved ? JSON.parse(saved) : [];
@@ -356,8 +362,11 @@
           const [showAnswer, setShowAnswer] = useState(false);
           const [showHint, setShowHint] = useState(false);
           
-          // State Hộp Quà / Phạt
+          // State Hộp Quà / Tổng kết
           const [giftModal, setGiftModal] = useState({ show: false, type: 'reward', status: 'menu', activeIndex: -1, revealedBoxIndex: -1, finalGift: null });
+          const [sessionResults, setSessionResults] = useState([]);
+          const [showSummary, setShowSummary] = useState(false);
+
           const applauseAudioRef = useRef(null);
 
           const [idleQuote, setIdleQuote] = useState(MOTIVATIONAL_QUOTES[0]);
@@ -442,7 +451,6 @@
             }
           };
 
-          // Lưu Cài đặt
           const handleApplySettings = (e) => {
             if (e) e.preventDefault();
             const s = parseInt(localSettings.students);
@@ -454,7 +462,6 @@
             }
           };
 
-          // Quản lý Mảng Thưởng / Phạt trong Setting
           const handleUpdateItem = (type, index, field, value) => {
              const newItems = [...localSettings[type]];
              newItems[index] = { ...newItems[index], [field]: value };
@@ -469,7 +476,6 @@
              setLocalSettings({ ...localSettings, [type]: newItems });
           };
 
-          // Thêm nhanh phần thưởng từ gợi ý
           const handleAddSuggestedReward = (sug) => {
              const newItem = { 
                id: Date.now().toString() + Math.random(), 
@@ -481,7 +487,6 @@
              setLocalSettings({ ...localSettings, rewards: [...localSettings.rewards, newItem] });
           };
 
-          // Thư viện
           const handleSaveToLibrary = () => {
             const currentId = (localSettings.sheetId || '').trim();
             if (!currentId) return alert('Vui lòng nhập ID Google Sheet trước khi lưu!');
@@ -563,14 +568,12 @@
             }
           };
 
-          // TÍNH NĂNG 1: TỰ CHỌN HỘP (THƯỞNG HOẶC PHẠT)
           const handleOpenSpecificGift = async (boxIndex) => {
             if (giftModal.status !== 'menu') return;
 
             setGiftModal(prev => ({ ...prev, status: 'opening', revealedBoxIndex: boxIndex, activeIndex: boxIndex }));
             await sleep(2000);
 
-            // Chọn ngẫu nhiên có trọng số
             const currentPool = giftModal.type === 'reward' ? settings.rewards : settings.penalties;
             const selectedGift = getWeightedRandom(currentPool);
 
@@ -580,13 +583,20 @@
               finalGift: selectedGift 
             }));
             
+            setSessionResults(prev => [...prev, {
+              id: Date.now() + Math.random(),
+              student: currentResult.student || 'Khách',
+              type: giftModal.type,
+              gift: selectedGift.text,
+              icon: selectedGift.icon
+            }]);
+
             confetti({ particleCount: 250, spread: 150, origin: { y: 0.5 } });
             if (selectedGift.text.includes("ĐIỂM CỘNG") || selectedGift.text.includes("VỖ TAY")) {
               playApplause();
             }
           };
 
-          // TÍNH NĂNG 2: MÁY QUAY CHỌN NGẪU NHIÊN 
           const handleSpinGift = async () => {
             if (giftModal.status !== 'menu' && giftModal.status !== 'revealed') return;
 
@@ -628,10 +638,39 @@
               finalGift: selectedGift 
             }));
             
+            setSessionResults(prev => [...prev, {
+              id: Date.now() + Math.random(),
+              student: currentResult.student || 'Khách',
+              type: giftModal.type,
+              gift: selectedGift.text,
+              icon: selectedGift.icon
+            }]);
+
             confetti({ particleCount: 250, spread: 150, origin: { y: 0.5 } });
             if (selectedGift.text.includes("ĐIỂM CỘNG") || selectedGift.text.includes("VỖ TAY")) {
               playApplause();
             }
+          };
+
+          const handleExportImage = () => {
+             const captureEl = document.getElementById('summary-capture');
+             const scroller = document.getElementById('summary-scroll');
+             
+             const oldAspect = captureEl.style.aspectRatio;
+             const oldOverflow = scroller.style.overflowY;
+             
+             captureEl.style.aspectRatio = 'auto';
+             scroller.style.overflowY = 'visible';
+             
+             html2canvas(captureEl, { backgroundColor: '#0f172a', scale: 2 }).then(canvas => {
+               const link = document.createElement('a');
+               link.download = `TongKet_HocTap_ThayLuc_${Date.now()}.png`;
+               link.href = canvas.toDataURL('image/png');
+               link.click();
+               
+               captureEl.style.aspectRatio = oldAspect;
+               scroller.style.overflowY = oldOverflow;
+             });
           };
 
           return (
@@ -653,33 +692,50 @@
                     🌻
                     <div className="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full"></div>
                   </div>
-                  <button onClick={() => setShowSettings(true)} className="mt-16 px-10 py-5 bg-white/10 hover:bg-white/20 border-2 border-white/30 rounded-full text-white font-bold text-2xl backdrop-blur-sm transition-all hover:scale-110 shadow-[0_0_30px_rgba(255,255,255,0.1)] flex items-center gap-3">
-                    <IconSettings /> Cài đặt bài học mới
-                  </button>
+                  <div className="flex gap-4 mt-16">
+                    <button onClick={() => setShowSummary(true)} className="px-8 py-4 bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-500/40 rounded-full text-indigo-300 font-bold text-xl backdrop-blur-sm transition-all hover:scale-105 flex items-center gap-2">
+                      <IconList /> Xem Tổng Kết
+                    </button>
+                    <button onClick={() => setShowSettings(true)} className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-white font-bold text-xl backdrop-blur-sm transition-all hover:scale-105 flex items-center gap-2">
+                      <IconSettings /> Cài đặt bài mới
+                    </button>
+                  </div>
                 </div>
               )}
 
-              {/* Header */}
-              <header className="relative z-10 flex items-center justify-between p-6 md:px-10 border-b border-slate-800 bg-slate-950/50 backdrop-blur-md">
-                <div className="flex items-center gap-4">
-                  <div className="vtl-logo w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-blue-600 rounded-full border-2 border-white text-white font-black text-xl md:text-2xl tracking-tighter">VTL</div>
-                  <h1 className="text-2xl md:text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Vòng quay học tập tích cực</h1>
-                </div>
+              {/* Header (Redesigned Toolbar) */}
+              <header className="relative z-10 flex items-center justify-between p-4 md:px-8 border-b border-slate-800 bg-slate-950/60 backdrop-blur-lg">
                 <div className="flex items-center gap-3">
-                  <div className="hidden lg:block text-slate-500 text-base italic mr-2 border border-slate-800 px-4 py-2 rounded-full">Phím tắt: F (Toàn màn hình)</div>
-                  
+                  <div className="vtl-logo w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-blue-600 rounded-full border border-white text-white font-black text-sm md:text-base tracking-tighter shadow-lg">VTL</div>
+                  <h1 className="text-xl md:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 hidden sm:block">
+                    Vòng quay học tập tích cực
+                  </h1>
+                </div>
+                
+                <div className="flex items-center gap-2 md:gap-3">
                   {/* NÚT THƯỞNG */}
-                  <button onClick={() => setGiftModal({ show: true, type: 'reward', status: 'menu', activeIndex: -1, revealedBoxIndex: -1, finalGift: null })} className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-pink-600 to-orange-500 hover:from-pink-500 hover:to-orange-400 text-white rounded-xl transition-all shadow-lg shadow-pink-500/20 hover:-translate-y-0.5">
-                    <IconGift /> <span className="hidden sm:inline font-bold text-lg">Phần Thưởng</span>
+                  <button onClick={() => setGiftModal({ show: true, type: 'reward', status: 'menu', activeIndex: -1, revealedBoxIndex: -1, finalGift: null })} className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-pink-500/10 hover:bg-pink-500/20 text-pink-400 border border-pink-500/30 rounded-full transition-all text-sm md:text-base font-semibold backdrop-blur-md hover:scale-105">
+                    <IconGift /> <span className="hidden lg:inline">Thưởng</span>
                   </button>
                   
                   {/* NÚT PHẠT */}
-                  <button onClick={() => setGiftModal({ show: true, type: 'penalty', status: 'menu', activeIndex: -1, revealedBoxIndex: -1, finalGift: null })} className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-slate-700 to-red-900 hover:from-slate-600 hover:to-red-800 text-white rounded-xl transition-all shadow-lg shadow-red-900/40 hover:-translate-y-0.5 border border-red-800">
-                    <IconSkull /> <span className="hidden sm:inline font-bold text-lg">Hình Phạt</span>
+                  <button onClick={() => setGiftModal({ show: true, type: 'penalty', status: 'menu', activeIndex: -1, revealedBoxIndex: -1, finalGift: null })} className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 rounded-full transition-all text-sm md:text-base font-semibold backdrop-blur-md hover:scale-105">
+                    <IconSkull /> <span className="hidden lg:inline">Phạt</span>
+                  </button>
+                  
+                  {/* NÚT TỔNG KẾT */}
+                  <button onClick={() => setShowSummary(true)} className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded-full transition-all text-sm md:text-base font-semibold backdrop-blur-md hover:scale-105">
+                    <IconList /> <span className="hidden lg:inline">Tổng kết</span>
                   </button>
 
-                  <button onClick={() => setShowSettings(true)} className="flex items-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 font-medium text-lg ml-2">
-                    <IconSettings /> <span className="hidden sm:inline">Cài đặt</span>
+                  {/* NÚT CÀI ĐẶT */}
+                  <button onClick={() => setShowSettings(true)} className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-slate-500/10 hover:bg-slate-500/20 text-slate-300 border border-slate-500/30 rounded-full transition-all text-sm md:text-base font-semibold backdrop-blur-md hover:scale-105">
+                    <IconSettings /> <span className="hidden lg:inline">Cài đặt</span>
+                  </button>
+
+                  {/* NÚT HƯỚNG DẪN MỚI */}
+                  <button onClick={() => setShowHelp(true)} className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full transition-all text-sm md:text-base font-semibold backdrop-blur-md hover:scale-105 ml-1 md:ml-2">
+                    <IconHelp /> <span className="hidden lg:inline">Hướng dẫn</span>
                   </button>
                 </div>
               </header>
@@ -710,14 +766,10 @@
                       </div>
 
                       <div className="flex-1 w-full flex flex-col items-center justify-center text-center py-10 overflow-y-auto custom-scroll">
-                        
-                        {/* Wrapper cho Câu hỏi và Phụ đề */}
                         <div className="flex flex-col items-center justify-center w-full gap-6 lg:gap-10">
                           <div className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-normal text-white w-full px-6">
                             <MathText text={currentResult.questionData?.q || ''} />
                           </div>
-                          
-                          {/* Phụ đề (Chỉ hiện khi chưa mở đáp án và có dữ liệu phụ đề) */}
                           {!showAnswer && currentResult.questionData?.sub && (
                             <div className="text-2xl md:text-4xl lg:text-5xl text-slate-400 italic font-light animate-in fade-in duration-500 w-full px-6 max-w-5xl">
                               <MathText text={currentResult.questionData.sub} />
@@ -893,7 +945,62 @@
                 </div>
               )}
 
-              {/* MODAL CÀI ĐẶT TÍCH HỢP QUẢN LÝ THƯ VIỆN VÀ THƯỞNG PHẠT */}
+              {/* BẢNG TỔNG KẾT THÀNH TÍCH CHUẨN TỈ LỆ 16:9 ĐỂ XUẤT ẢNH */}
+              {showSummary && (
+                <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 lg:p-8 bg-black/90 backdrop-blur-md animate-in fade-in duration-300">
+                  <button onClick={() => setShowSummary(false)} className="absolute top-4 right-4 lg:top-8 lg:right-8 p-4 bg-slate-800/50 hover:bg-slate-700 rounded-full text-white/50 hover:text-white transition-colors z-50">
+                    <IconX />
+                  </button>
+
+                  <div className="flex flex-col items-center w-full max-w-[1200px]">
+                    <div id="summary-capture" className="bg-slate-900 border-4 border-slate-700 rounded-3xl w-full relative overflow-hidden flex flex-col" style={{ aspectRatio: '16/9' }}>
+                      <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url('${BACKGROUND_IMAGES[0]}')` }}></div>
+                      
+                      <div className="relative z-10 flex flex-col h-full p-8 md:p-10">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-400 mb-8 text-center uppercase tracking-wider">
+                          🏆 Bảng Vàng Tổng Kết 🏆
+                        </h2>
+                        
+                        <div id="summary-scroll" className="flex-1 overflow-y-auto custom-scroll pr-4 pb-4 h-full content-start">
+                           {sessionResults.length === 0 ? (
+                              <div className="text-center text-slate-400 text-2xl mt-20 italic">Chưa có dữ liệu nào được ghi nhận.</div>
+                           ) : (
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                                {sessionResults.map(res => (
+                                  <div key={res.id} className={`flex items-center gap-4 p-4 lg:p-6 rounded-2xl border-2 shadow-lg backdrop-blur-sm ${res.type === 'reward' ? 'bg-green-900/20 border-green-500/30 shadow-green-500/10' : 'bg-red-900/20 border-red-500/30 shadow-red-500/10'}`}>
+                                     <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-slate-800 flex items-center justify-center text-4xl lg:text-5xl shrink-0 border border-slate-700 shadow-inner">
+                                        {res.icon}
+                                     </div>
+                                     <div className="flex flex-col">
+                                        <span className="text-xl lg:text-3xl font-black text-white">Học sinh {res.student}</span>
+                                        <span className={`text-base lg:text-xl font-bold mt-1 ${res.type === 'reward' ? 'text-yellow-400' : 'text-red-400'}`}>
+                                          {res.gift}
+                                        </span>
+                                     </div>
+                                  </div>
+                                ))}
+                              </div>
+                           )}
+                        </div>
+                        <div className="mt-4 text-right text-slate-500 text-sm font-semibold opacity-50">
+                           Tạo bởi: Vòng Quay Học Tập Tích Cực - Thầy Vũ Tiến Lực
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-4 mt-6">
+                      <button onClick={handleExportImage} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-full font-bold text-xl transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)] flex items-center gap-2 hover:scale-105">
+                        <IconDownload /> Xuất Ảnh (Lưu lại)
+                      </button>
+                      <button onClick={() => { if (window.confirm("Bạn có chắc chắn muốn xóa toàn bộ danh sách kết quả này?")) setSessionResults([]); }} className="px-6 py-4 bg-slate-800 hover:bg-red-900/80 border border-slate-700 text-slate-300 hover:text-red-300 rounded-full font-bold text-lg transition-all flex items-center gap-2">
+                        <IconTrash /> Xóa danh sách
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* MODAL CÀI ĐẶT */}
               {showSettings && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
                   <div className="bg-slate-900 border-2 border-slate-700 rounded-3xl w-full max-w-6xl shadow-2xl flex flex-col h-[90vh]">
@@ -906,8 +1013,6 @@
                     </div>
 
                     <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-2">
-                      
-                      {/* Cột trái: Form cấu hình có Tabs */}
                       <div className="border-r border-slate-800 flex flex-col min-h-0 h-full">
                         <div className="flex bg-slate-950 border-b border-slate-800 px-8 pt-4 shrink-0">
                            <button onClick={()=>setSettingsTab('general')} className={`pb-3 px-4 font-bold text-lg transition-colors ${settingsTab==='general' ? 'text-blue-400 border-b-2 border-blue-400' : 'text-slate-500 hover:text-slate-300'}`}>Cài đặt chung</button>
@@ -917,56 +1022,50 @@
                         
                         <div className="p-6 md:p-8 overflow-y-auto custom-scroll flex-1">
                           {settingsTab === 'general' && (
-                             <div className="flex flex-col gap-6">
-                                <h4 className="text-xl font-semibold text-blue-400 uppercase tracking-wider">Cấu hình Đang chạy</h4>
-                                <div>
-                                  <label className="block text-base font-medium text-slate-400 mb-2">Tổng số học sinh (Không bị loại trừ)</label>
-                                  <input type="number" name="students" value={localSettings.students} onChange={e => setLocalSettings({...localSettings, students: e.target.value})} min="1" max="999" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xl text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required />
-                                </div>
-                                <div>
-                                  <label className="block text-base font-medium text-slate-400 mb-2">ID Google Sheet (Câu hỏi bài giảng)</label>
-                                  <input type="text" name="sheetId" value={localSettings.sheetId} onChange={e => setLocalSettings({...localSettings, sheetId: e.target.value})} placeholder="Nhập ID từ URL Google Sheet..." className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-lg text-white focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-slate-600" />
-                                  <p className="text-xs text-slate-500 mt-2">Cột A: Câu hỏi | Cột B: Đáp án | Cột C: Gợi ý | Cột D: Phụ đề</p>
-                                </div>
-                                {!localSettings.sheetId && (
-                                  <div>
-                                    <label className="block text-base font-medium text-slate-400 mb-2">Số lượng câu hỏi mặc định (Sinh tự động)</label>
-                                    <input type="number" name="questions" value={localSettings.questions} onChange={e => setLocalSettings({...localSettings, questions: e.target.value})} min="1" max="999" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xl text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required />
-                                  </div>
-                                )}
-                                <div className="mt-2 p-6 bg-blue-900/10 border border-blue-800/30 rounded-2xl">
-                                   <h5 className="text-blue-300 font-medium mb-4 flex items-center gap-2"><IconSave /> Lưu bài học (kèm cài đặt Thưởng/Phạt hiện tại)</h5>
-                                   <div className="flex flex-col gap-3">
-                                      <input type="text" placeholder="Tên bài (VD: Ôn tập hàm số)" value={saveForm.name} onChange={e => setSaveForm({...saveForm, name: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500" />
-                                      <div className="flex gap-3">
-                                         <select value={saveForm.grade} onChange={e => setSaveForm({...saveForm, grade: e.target.value})} className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none w-1/3">
-                                            {GRADES.map(g => <option key={g} value={g}>Khối {g}</option>)}
-                                         </select>
-                                         <button type="button" onClick={handleSaveToLibrary} className="flex-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold py-2 transition-colors">Lưu Vào Thư Viện</button>
-                                      </div>
+                             <form>
+                               <div className="space-y-6">
+                                 <div>
+                                   <label className="block text-base font-medium text-slate-400 mb-2">Tổng số học sinh (Không bị loại trừ)</label>
+                                   <input type="number" name="students" value={localSettings.students} onChange={e => setLocalSettings({...localSettings, students: e.target.value})} min="1" max="999" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xl text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required />
+                                 </div>
+                                 <div>
+                                   <label className="block text-base font-medium text-slate-400 mb-2">ID Google Sheet (Câu hỏi bài giảng)</label>
+                                   <input type="text" name="sheetId" value={localSettings.sheetId} onChange={e => setLocalSettings({...localSettings, sheetId: e.target.value})} placeholder="Nhập ID từ URL Google Sheet..." className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-lg text-white focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-slate-600" />
+                                   <p className="text-xs text-slate-500 mt-2">Cột A: Câu hỏi | Cột B: Đáp án | Cột C: Gợi ý | Cột D: Phụ đề</p>
+                                 </div>
+                                 {!localSettings.sheetId && (
+                                   <div>
+                                     <label className="block text-base font-medium text-slate-400 mb-2">Số lượng câu hỏi mặc định (Sinh tự động)</label>
+                                     <input type="number" name="questions" value={localSettings.questions} onChange={e => setLocalSettings({...localSettings, questions: e.target.value})} min="1" max="999" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xl text-white focus:ring-2 focus:ring-blue-500 focus:outline-none" required />
                                    </div>
-                                </div>
-                             </div>
+                                 )}
+                               </div>
+                               <div className="mt-8 p-6 bg-blue-900/10 border border-blue-800/30 rounded-2xl">
+                                  <h5 className="text-blue-300 font-medium mb-4 flex items-center gap-2"><IconSave /> Lưu bài học (kèm cài đặt Thưởng/Phạt hiện tại)</h5>
+                                  <div className="flex flex-col gap-3">
+                                     <input type="text" placeholder="Tên bài (VD: Ôn tập hàm số)" value={saveForm.name} onChange={e => setSaveForm({...saveForm, name: e.target.value})} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-blue-500" />
+                                     <div className="flex gap-3">
+                                        <select value={saveForm.grade} onChange={e => setSaveForm({...saveForm, grade: e.target.value})} className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none w-1/3">
+                                           {GRADES.map(g => <option key={g} value={g}>Khối {g}</option>)}
+                                        </select>
+                                        <button type="button" onClick={handleSaveToLibrary} className="flex-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold py-2 transition-colors">Lưu Vào Thư Viện</button>
+                                     </div>
+                                  </div>
+                               </div>
+                             </form>
                           )}
 
-                          {/* Editor Thưởng / Phạt */}
                           {(settingsTab === 'rewards' || settingsTab === 'penalties') && (() => {
                              const listKey = settingsTab === 'rewards' ? 'rewards' : 'penalties';
                              const colorScheme = settingsTab === 'rewards' ? 'yellow' : 'red';
                              return (
                                <div className="space-y-4 pb-4">
-                                 {/* Gợi ý thêm nhanh phần thưởng */}
                                  {settingsTab === 'rewards' && (
                                    <div className="mb-6 border-b border-slate-700 pb-6">
                                      <h5 className="text-yellow-400 font-bold mb-3 text-sm flex items-center gap-2"><IconLightbulb/> Gợi ý phần thưởng tích cực (Click để chọn)</h5>
                                      <div className="flex flex-wrap gap-2">
                                        {SUGGESTED_REWARDS.map((sug, i) => (
-                                          <button
-                                            key={i}
-                                            type="button"
-                                            onClick={() => handleAddSuggestedReward(sug)}
-                                            className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-full text-xs font-semibold text-slate-300 transition-colors flex items-center gap-1 shadow-sm"
-                                          >
+                                          <button key={i} type="button" onClick={() => handleAddSuggestedReward(sug)} className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-full text-xs font-semibold text-slate-300 transition-colors flex items-center gap-1 shadow-sm">
                                             <span className="text-sm">{sug.icon}</span> {sug.text}
                                           </button>
                                        ))}
@@ -996,7 +1095,6 @@
                           })()}
                         </div>
                         
-                        {/* NÚT ÁP DỤNG LUÔN HIỂN THỊ DƯỚI CÙNG CỘT TRÁI */}
                         <div className="p-6 border-t border-slate-800 bg-slate-900 shrink-0">
                            <button onClick={handleApplySettings} className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg hover:from-blue-500 hover:to-indigo-500 transition-colors shadow-lg">Áp Dụng Thay Đổi & Tải Bài</button>
                         </div>
@@ -1042,8 +1140,65 @@
                            </div>
                         )}
                       </div>
-
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* MODAL HƯỚNG DẪN & MẸO */}
+              {showHelp && (
+                <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 lg:p-8 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+                  <div className="bg-slate-900 border-2 border-slate-700 rounded-3xl w-full max-w-4xl shadow-2xl flex flex-col max-h-[90vh]">
+                     {/* Header */}
+                     <div className="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-950 shrink-0">
+                         <h3 className="text-2xl font-bold text-emerald-400 flex items-center gap-3"><IconHelp /> Cẩm Nang & Mẹo Dạy Học</h3>
+                         <button onClick={() => setShowHelp(false)} className="text-slate-400 hover:text-white p-2 bg-slate-800 rounded-full transition-colors"><IconX /></button>
+                     </div>
+                     
+                     {/* Content */}
+                     <div className="p-6 md:p-10 overflow-y-auto custom-scroll space-y-10">
+                         {/* Hướng dẫn */}
+                         <section>
+                            <h4 className="text-xl font-bold text-white mb-4 border-l-4 border-blue-500 pl-3">📖 Hướng Dẫn Sử Dụng</h4>
+                            <ul className="space-y-4 text-slate-300">
+                               <li className="flex gap-3"><div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-sm">1</div> <span><strong>Chuẩn bị Bài học:</strong> Vào <b>Cài đặt</b>, nhập tổng số học sinh. Nếu muốn dùng bộ câu hỏi riêng, dán ID của Google Sheet vào. (Cách lấy ID: Mở File Google Sheet -> Copy dãy mã dài trên thanh URL).</span></li>
+                               <li className="flex gap-3"><div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-sm">2</div> <span><strong>Cấu trúc Google Sheet:</strong> Bảng cần có quyền <em>"Bất kỳ ai có liên kết"</em>. Cột A: Câu hỏi, Cột B: Đáp án, Cột C: Gợi ý (hiện bóng đèn), Cột D: Phụ đề (chữ nhỏ dưới câu hỏi). Cả 4 cột đều hỗ trợ gõ công thức Toán học `$...$`.</span></li>
+                               <li className="flex gap-3"><div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-sm">3</div> <span><strong>Quay Số:</strong> Ở màn hình chính, chọn Chế độ quay và bấm <b>Quay Số</b> để chọn ngẫu nhiên 1 bạn học sinh trả lời câu hỏi. Câu hỏi nào đã ra sẽ tự động bị loại bỏ ở vòng sau.</span></li>
+                               <li className="flex gap-3"><div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-sm">4</div> <span><strong>Thưởng & Phạt:</strong> Sử dụng 2 nút <b>Phần Thưởng</b> và <b>Hình Phạt</b> trên thanh công cụ. Có thể cho học sinh tự bấm chọn 1 chiếc hộp ngẫu nhiên để tăng tính tương tác.</span></li>
+                               <li className="flex gap-3"><div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-sm">5</div> <span><strong>Phím tắt:</strong> Bấm phím <kbd className="bg-slate-800 border border-slate-600 px-2 py-0.5 rounded text-white font-mono text-sm">F</kbd> trên bàn phím bất cứ lúc nào để bật/tắt chế độ Toàn Màn Hình.</span></li>
+                            </ul>
+                         </section>
+
+                         {/* 5 Tips */}
+                         <section>
+                            <h4 className="text-xl font-bold text-white mb-4 border-l-4 border-yellow-500 pl-3">💡 5 Mẹo Tối Ưu Hóa Tiết Học</h4>
+                            <div className="grid gap-4">
+                               <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50">
+                                  <h5 className="font-bold text-yellow-400 mb-1">1. "Cú Lừa" Hoàn Hảo</h5>
+                                  <p className="text-slate-300 text-sm">Sử dụng chế độ quay <em>"7. Cú lừa"</em>. Vòng quay sẽ giả vờ dừng lại ở 1 bạn (khiến lớp tưởng đã có kết quả), dừng khoảng 0.5s rồi đột ngột vút đi quay tiếp. Đây là chiêu trò tạo tiếng cười và sự thót tim cực độ cho học sinh.</p>
+                               </div>
+                               <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50">
+                                  <h5 className="font-bold text-yellow-400 mb-1">2. Cá Nhân Hóa Cùng Học Sinh</h5>
+                                  <p className="text-slate-300 text-sm">Đầu năm học, hãy mở mục <b>Cài đặt Thưởng/Phạt</b> và cùng cả lớp thảo luận thống nhất các hình phạt hay phần quà. Việc để học sinh tự chốt luật chơi sẽ khiến các em tự giác tuân thủ hơn.</p>
+                               </div>
+                               <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50">
+                                  <h5 className="font-bold text-yellow-400 mb-1">3. Phao Cứu Sinh (Gợi ý)</h5>
+                                  <p className="text-slate-300 text-sm">Khi một học sinh bốc trúng câu hỏi khó và đứng hình, thay vì mở đáp án luôn, thầy hãy nhấp vào <b>Icon Bóng đèn</b> góc trái để bung ra gợi ý (Cột C). Điều này giúp khích lệ tư duy học sinh một cách nhẹ nhàng.</p>
+                               </div>
+                               <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50">
+                                  <h5 className="font-bold text-yellow-400 mb-1">4. Vinh Danh Bằng Bảng Tổng Kết</h5>
+                                  <p className="text-slate-300 text-sm">Cuối tiết học, hãy mở <b>Bảng Tổng Kết</b> và bấm "Xuất Ảnh". Thầy có thể gửi bức ảnh lộng lẫy này vào nhóm Zalo của Lớp/Phụ huynh để vinh danh những bạn đã tích cực lên bảng nhận điểm cộng/phần thưởng.</p>
+                               </div>
+                               <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50">
+                                  <h5 className="font-bold text-yellow-400 mb-1">5. Tận Dụng Tính Năng Trọng Số (Tỷ lệ)</h5>
+                                  <p className="text-slate-300 text-sm">Trong phần Cài đặt Hình Phạt, hãy để 1 ô <em>"Cộng 10 điểm (Quà ẩn)"</em> với tỷ lệ cực thấp (Ví dụ: Trọng số 1). Học sinh dù bốc trúng Hình Phạt nhưng vẫn có hy vọng mong manh trúng được Quà, tạo cảm giác hồi hộp như chơi xổ số!</p>
+                               </div>
+                            </div>
+                         </section>
+                     </div>
+                     <div className="p-6 border-t border-slate-800 bg-slate-900 text-center shrink-0">
+                         <button onClick={() => setShowHelp(false)} className="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-full transition-colors">Đã Hiểu</button>
+                     </div>
                   </div>
                 </div>
               )}
