@@ -110,10 +110,10 @@
 
         /* CSS CHO IN ẤN (A4) */
         @media print {
-            @page { margin: 12mm; size: A4 portrait; }
+            @page { margin: 10mm; size: A4 portrait; }
             .no-print { display: none !important; }
             .hide-on-print { display: none !important; }
-            body { background: white !important; color: black !important; -webkit-print-color-adjust: exact; }
+            body { background: white !important; color: black !important; -webkit-print-color-adjust: exact; margin: 0; padding: 0; }
             .print-break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
         }
     </style>
@@ -298,7 +298,6 @@
             }
           }, [text]);
           const safeText = text != null ? String(text) : '';
-          // Remove inline-block to allow text to flow naturally with surrounding text
           return <span ref={nodeRef} dangerouslySetInnerHTML={{ __html: safeText.replace(/\n/g, '<br/>') }} />;
         };
 
@@ -1178,7 +1177,7 @@
                                                     <button onClick={() => handleDeleteSavedSheet(sheet.id)} className="p-2 bg-slate-900 rounded-lg hover:bg-red-500/20 transition-colors ml-3" title="Xoá bài học này"><IconTrash /></button>
                                                  </div>
                                               ))}
-                                           </div>
+                                            </div>
                                         )}
                                      </div>
                                   );
@@ -1246,7 +1245,7 @@
 
               {/* MÀN HÌNH XEM TRƯỚC IN ẤN PHIẾU HỌC TẬP (A4) */}
               {showPrintPreview && (
-                <div className="min-h-screen bg-slate-800 print:bg-white pb-12 print:p-0">
+                <div className="min-h-screen bg-slate-800 print:bg-white pb-12 print:p-0 print:block">
                   <div className="no-print bg-slate-900 border-b border-slate-700 p-4 sticky top-0 z-50 flex justify-between items-center shadow-xl">
                      <h2 className="text-xl font-bold text-white flex items-center gap-2"><IconPrint /> Chế độ In Phiếu Học Tập</h2>
                      
@@ -1287,7 +1286,7 @@
                   </div>
 
                   {/* A4 Paper Container */}
-                  <div className={`mx-auto mt-8 bg-white text-black p-[15mm] print:p-0 shadow-2xl print:shadow-none w-[210mm] min-h-[297mm] print:w-full print:min-h-0 print:m-0 ${printFont}`}>
+                  <div className={`mx-auto mt-8 bg-white text-black p-[20mm] print:p-[10mm] shadow-2xl print:shadow-none w-[210mm] min-h-[297mm] print:w-full print:max-w-full print:min-h-0 print:m-0 box-border print:block ${printFont}`}>
                      <div className="text-center mb-8 border-b-2 border-black pb-4">
                         <h1 className="text-2xl font-bold uppercase mb-4 tracking-widest">Phiếu Học Tập</h1>
                         <div className="flex justify-between items-end text-base font-semibold w-full px-2">
@@ -1299,14 +1298,14 @@
                               <span className="whitespace-nowrap">Họ tên:</span>
                               <div className="border-b border-dotted border-black flex-1"></div>
                               <span className="whitespace-nowrap ml-4">Lớp:</span>
-                              <div className="border-b border-dotted border-black w-20"></div>
+                              <div className="border-b border-dotted border-black w-24"></div>
                            </div>
                         </div>
                      </div>
 
-                     <div className="grid grid-cols-2 gap-x-8 gap-y-8 text-[12pt] print:text-[12pt] w-full">
+                     <div className="grid grid-cols-2 gap-x-6 gap-y-8 text-[12pt] print:text-[12pt] w-full max-w-full">
                         {allQuestions.map(q => (
-                           <div key={q.id} className="print-break-inside-avoid text-left break-inside-avoid w-full">
+                           <div key={q.id} className="print-break-inside-avoid text-left break-inside-avoid w-full break-words overflow-hidden">
                               <div className="mb-2 text-left leading-relaxed">
                                  <span className="font-bold">Câu {q.id}: </span>
                                  <span className="font-normal"><MathText text={q.q} /></span>
